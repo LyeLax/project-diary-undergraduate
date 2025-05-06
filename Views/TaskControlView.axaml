@@ -1,0 +1,22 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:ProjectDiary.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="ProjectDiary.Views.TaskControlView"
+             x:CompileBindings="False"
+             >
+
+  <Border Margin="5" CornerRadius="5" Background="Purple" PointerPressed="Edit_Task">
+  <StackPanel>
+      <TextBlock Text="{Binding Name}" Margin="3"/>
+      <TextBlock x:Name="priority" Text="{Binding Priority}" HorizontalAlignment="Right"/>
+      <TextBlock HorizontalAlignment="Right" Text="{Binding DeadlineString}"/>
+      <!--these serve to send data from ViewModel to code behind-->
+      <TextBlock x:Name="ID" Text="{Binding TaskID}" IsVisible="False"/>
+      <TextBlock x:Name="status" Text="{Binding State}" IsVisible="False"/>
+  </StackPanel>
+  </Border>
+
+</UserControl>

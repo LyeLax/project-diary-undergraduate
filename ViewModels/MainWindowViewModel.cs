@@ -52,13 +52,12 @@ public partial class MainWindowViewModel : ViewModelBase
             }
         }); 
         //capacity test of on screen lists
-        
-        for (int i = 0; i < 100; i++){
+        /*for (int i = 0; i < 100; i++){
             var addition = new TaskControlViewModel(i.ToString(), "Low", "", DateTime.Now, "yes",1000);
             TaskList.Add(addition);
             DoingTaskList.Add(addition);
             DoneTaskList.Add(addition);
-        }
+        }*/
     }
     public ICommand OpenNewTask {get;}
     //Data passing system for new task

@@ -187,3 +187,4 @@
 /home/nate/ProjectDiary/bin/Release/net9.0/ReactiveUI.dll
 /home/nate/ProjectDiary/bin/Release/net9.0/Splat.dll
 /home/nate/ProjectDiary/bin/Release/net9.0/System.Reactive.dll
+/home/nate/ProjectDiary/obj/Release/net9.0/ProjectDiary.sourcelink.json

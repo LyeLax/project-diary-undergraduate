@@ -1,0 +1,17 @@
+bin/Release/net9.0/ProjectDiary.dll
+bin/Release/net9.0/ProjectDiary.pdb
+obj/project.assets.json
+obj/project.nuget.cache
+obj/ProjectDiary.csproj.nuget.dgspec.json
+obj/Release/net9.0/ProjectDiary.AssemblyInfo.cs
+obj/Release/net9.0/ProjectDiary.AssemblyInfoInputs.cache
+obj/Release/net9.0/ProjectDiary.csproj.AssemblyReference.cache
+obj/Release/net9.0/ProjectDiary.csproj.FileListAbsolute.txt
+obj/Release/net9.0/ProjectDiary.dll
+obj/Release/net9.0/ProjectDiary.pdb
+obj/Release/net9.0/ProjectDiary.sourcelink.json
+obj/Release/net9.0/Avalonia/ProjectDiary.dll
+obj/Release/net9.0/Avalonia/ProjectDiary.pdb
+obj/Release/net9.0/ref/ProjectDiary.dll
+obj/Release/net9.0/refint/ProjectDiary.dll
+obj/Release/net9.0/refint/Avalonia/ProjectDiary.dll

@@ -39,7 +39,7 @@ public partial class TaskEdit : Window
         }
         //Database update
         DBConnect connect = new();
-        string path = Directory.GetFiles(Directory.GetCurrentDirectory(),"*.db")[0];
+        string path = @"C:\Users\Nate\source\repos\LyeLax\project-diary-undergraduate\projectdiary.db";
         connect.DatabaseConnect(path);
         //needs to update tasks set each field with the changable section
         //Description, Date, Priority, State
@@ -54,7 +54,7 @@ public partial class TaskEdit : Window
     public void Delete_Button (object sender, RoutedEventArgs args){
         //Database Deletion
         DBConnect connect = new();
-        string path = Directory.GetFiles(Directory.GetCurrentDirectory(),"*.db")[0];
+        string path = @"C:\Users\Nate\source\repos\LyeLax\project-diary-undergraduate\projectdiary.db";
         connect.DatabaseConnect(path);
         string sql = $"DELETE FROM tasks WHERE taskID = {TaskControlView.TaskIdent}";
         connect.SQLQuery(sql);

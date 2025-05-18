@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
 using System.IO;
 using System.Reactive.Linq;
-using System.Text;
 using System.Windows.Input;
-using Avalonia.Input;
 using Microsoft.Data.Sqlite;
-using ProjectDiary.Views;
 using ReactiveUI;
 using ProjectDiary.Models;
 
@@ -43,7 +38,7 @@ public partial class MainWindowViewModel : ViewModelBase
                 //task sent to persistent data
                 DBConnect database = new();
                 //searches for a .db file in the current directory to connect to
-                string path = Directory.GetFiles(Directory.GetCurrentDirectory(),"*.db")[0];
+                string path = @"C:\Users\Nate\source\repos\LyeLax\project-diary-undergraduate\projectdiary.db";
                 database.DatabaseConnect(path);
                 string sql = $"INSERT INTO tasks (taskName,taskPriority,taskDescription,taskDueDate,taskState) VALUES ('{result.Name}', '{result.Priority}', '{result.Description}', '{result.DeadlineString}',{statepass})";
                 database.SQLQuery(sql);
@@ -71,31 +66,33 @@ public partial class MainWindowViewModel : ViewModelBase
     public static void DataLoad(){
         DBConnect database = new();
         //searches for a .db file in the current directory to connect to
-        string path = Directory.GetFiles(Directory.GetCurrentDirectory(),"*.db")[0];
+        string path = @"C:\Users\Nate\source\repos\LyeLax\project-diary-undergraduate\projectdiary.db";
         database.DatabaseConnect(path);
+        
         string sql = "SELECT * FROM tasks";
         SqliteDataReader? load = database.SQLGet(sql); 
         if (load != null){
-            while(load.Read()){
+            while (load.Read())
+            {
                 int name = load.GetOrdinal("taskName");
                 int priority = load.GetOrdinal("taskPriority");
                 int desc = load.GetOrdinal("taskDescription");
                 DateTime date = DateTime.Parse(load.GetString(load.GetOrdinal("taskDueDate")));
                 int state = load.GetInt32(load.GetOrdinal("taskState"));
-                //state names hard coded, could add variable state names in future
-                switch (state){
+                switch (state)
+                {
                     case 1:
-                    TaskList.Add(new TaskControlViewModel(load.GetString(name),
-                    load.GetString(priority),load.GetString(desc), date,"To-Do", load.GetInt32(0)));
-                    break;
+                        TaskList.Add(new TaskControlViewModel(load.GetString(name),
+                        load.GetString(priority), load.GetString(desc), date, "To-Do", load.GetInt32(0)));
+                        break;
                     case 2:
-                    DoingTaskList.Add(new TaskControlViewModel(load.GetString(name),
-                    load.GetString(priority),load.GetString(desc), date,"Doing",load.GetInt32(0)));
-                    break;
+                        DoingTaskList.Add(new TaskControlViewModel(load.GetString(name),
+                        load.GetString(priority), load.GetString(desc), date, "Doing", load.GetInt32(0)));
+                        break;
                     case 3:
-                    DoneTaskList.Add(new TaskControlViewModel(load.GetString(name),
-                    load.GetString(priority),load.GetString(desc), date,"Done",load.GetInt32(0)));
-                    break;
+                        DoneTaskList.Add(new TaskControlViewModel(load.GetString(name),
+                        load.GetString(priority), load.GetString(desc), date, "Done", load.GetInt32(0)));
+                        break;
                 }
             }
         }

@@ -11,7 +11,6 @@ public class DBConnect {
     //file name needs to be full path, will add something later
     //includes a method of finding the database path in the build directory
     public void DatabaseConnect(string filename){
-        string fulldir = Directory.GetCurrentDirectory();
         var constring = new SqliteConnectionStringBuilder(){
             DataSource = filename,
             ForeignKeys = true
